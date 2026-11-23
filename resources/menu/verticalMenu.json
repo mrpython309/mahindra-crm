@@ -1,0 +1,254 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Dashboard",
+      "icon": "menu-icon icon-base bx bx-home-circle",
+      "slug": "dashboard"
+    },
+    {
+      "name": "Master",
+      "icon": "menu-icon icon-base bx bx-grid-alt",
+      "slug": [
+        "companies",
+        "dealer-locations",
+        "segments",
+        "transmissions",
+        "fuel-types",
+        "colours",
+        "vehicle-models",
+        "variants",
+        "subsegment",
+        "makes",
+        "brand-models",
+        "designation",
+        "department"
+      ],
+      "submenu": [
+        {
+          "url": "/companies",
+          "name": "Companies",
+          "slug": "companies",
+          "icon": "menu-icon icon-base bx bx-building-house"
+        },
+        {
+          "url": "/dealer-locations",
+          "name": "Dealer Locations",
+          "slug": "dealer-locations",
+          "icon": "menu-icon icon-base bx bx-map-pin"
+        },
+        {
+          "url": "/segments",
+          "name": "Segments",
+          "slug": "segments",
+          "icon": "menu-icon icon-base bx bx-category-alt"
+        },
+        {
+          "url": "/subsegment",
+          "name": "Subsegment",
+          "slug": "subsegment",
+          "icon": "menu-icon icon-base bx bx-category-alt"
+        },
+        {
+          "url": "/transmissions",
+          "name": "Transmissions",
+          "slug": "transmissions",
+          "icon": "menu-icon icon-base bx bx bx-cog"
+        },
+        {
+          "url": "/fuel-types",
+          "name": "Fuel Types",
+          "slug": "fuel-types",
+          "icon": "menu-icon icon-base bx bx-gas-pump"
+        },
+        {
+          "url": "/colours",
+          "name": "Colours",
+          "slug": "colours",
+          "icon": "menu-icon icon-base bx bx-palette"
+        },
+        {
+          "url": "/vehicle-models",
+          "name": "Vehicle Models",
+          "slug": "vehicle-models",
+          "icon": "menu-icon icon-base bx bx-car"
+        },
+        {
+          "url": "/variants",
+          "name": "Variants",
+          "slug": "variants",
+          "icon": "menu-icon icon-base bx bx-list-ul"
+        },
+        {
+          "url": "/makes",
+          "name": "Makes",
+          "slug": "makes",
+          "icon": "menu-icon icon-base bx bx-car"
+        },
+        {
+          "url": "/brand-models",
+          "name": "Brand Models",
+          "slug": "brand-models",
+          "icon": "menu-icon icon-base bx bx-list-check"
+        },
+        {
+          "url": "/designation",
+          "name": "Designation",
+          "slug": "designation",
+          "icon": "menu-icon icon-base bx bx-id-card"
+        },
+        {
+          "url": "/department",
+          "name": "Department",
+          "slug": "department",
+          "icon": "menu-icon icon-base bx bx-group"
+        }
+      ]
+    },
+    {
+      "name": "Lead",
+      "icon": "menu-icon icon-base bx bx-user-check",
+      "slug": [
+        "enquiry-types",
+        "lead-sources",
+        "lead-types",
+        "lead-status",
+        "status-source",
+        "leads"
+      ],
+      "submenu": [
+        {
+          "url": "/enquiry-types",
+          "name": "Enquiry Type",
+          "slug": "enquiry-types",
+          "icon": "menu-icon icon-base bx bx-list-ol"
+        },
+        {
+          "url": "/lead-sources",
+          "name": "Lead Source",
+          "slug": "lead-sources",
+          "icon": "menu-icon icon-base bx bx-radar"
+        },
+        {
+          "url": "/lead-types",
+          "name": "Lead Type",
+          "slug": "lead-types",
+          "icon": "menu-icon icon-base bx bx-tag"
+        },
+        {
+          "url": "/lead-statuses",
+          "name": "Lead Stage",
+          "slug": "lead-status",
+          "icon": "menu-icon icon-base bx bx-check-circle"
+        },
+        {
+          "url": "/status-sources",
+          "name": "Lead Response",
+          "slug": "status-source",
+          "icon": "menu-icon icon-base bx bx-list-check"
+        },
+        {
+          "url": "/leads",
+          "name": "Leads",
+          "slug": "leads",
+          "icon": "menu-icon icon-base bx bx-user-plus"
+        },
+        {
+          "url": "/leads/duplicates",
+          "name": "Duplicate Leads",
+          "slug": "leads.duplicates",
+          "icon": "menu-icon icon-base bx bx-copy"
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "icon": "menu-icon icon-base bx bx-bar-chart-alt-2",
+      "slug": ["reports.index", "reports.lead-summary", "reports.follow-up", "reports.employee-performance", "reports.vehicle-interest", "reports.lead-source", "reports.location-wise", "reports.likely-purchase"],
+      "submenu": [
+        {
+          "url": "/reports",
+          "name": "All Reports",
+          "slug": "reports.index",
+          "permission": "reports:index",
+          "icon": "menu-icon icon-base bx bx-grid-alt"
+        },
+        {
+          "url": "/reports/lead-summary",
+          "name": "Lead Summary",
+          "slug": "reports.lead-summary",
+          "permission": "reports:lead-summary",
+          "icon": "menu-icon icon-base bx bx-bar-chart-alt-2"
+        },
+        {
+          "url": "/reports/follow-up",
+          "name": "Follow-up Due",
+          "slug": "reports.follow-up",
+          "permission": "reports:follow-up",
+          "icon": "menu-icon icon-base bx bx-calendar-check"
+        },
+        {
+          "url": "/reports/employee-performance",
+          "name": "Employee Performance",
+          "slug": "reports.employee-performance",
+          "permission": "reports:employee-performance",
+          "icon": "menu-icon icon-base bx bx-user-check"
+        },
+        {
+          "url": "/reports/vehicle-interest",
+          "name": "Vehicle Interest",
+          "slug": "reports.vehicle-interest",
+          "permission": "reports:vehicle-interest",
+          "icon": "menu-icon icon-base bx bx-car"
+        },
+        {
+          "url": "/reports/lead-source",
+          "name": "Lead Source",
+          "slug": "reports.lead-source",
+          "permission": "reports:lead-source",
+          "icon": "menu-icon icon-base bx bx-radar"
+        },
+        {
+          "url": "/reports/location-wise",
+          "name": "Location-wise",
+          "slug": "reports.location-wise",
+          "permission": "reports:location-wise",
+          "icon": "menu-icon icon-base bx bx-map-pin"
+        },
+        {
+          "url": "/reports/likely-purchase",
+          "name": "Likely Purchase",
+          "slug": "reports.likely-purchase",
+          "permission": "reports:likely-purchase",
+          "icon": "menu-icon icon-base bx bx-trending-up"
+        }
+      ]
+    },
+    {
+      "name": "Setting",
+      "icon": "menu-icon icon-base bx bx-cog",
+      "slug": [
+        "employee",
+        "roles",
+        "branches"
+      ],
+      "submenu": [
+        {
+          "url": "/employee",
+          "name": "Employee",
+          "slug": "employee"
+        },
+        {
+          "url": "/employee/hierarchy",
+          "name": "Employee Hierarchy",
+          "slug": "employee.hierarchy"
+        },
+        {
+          "url": "roles",
+          "name": "Roles",
+          "slug": "roles"
+        }
+      ]
+    }
+  ]
+}

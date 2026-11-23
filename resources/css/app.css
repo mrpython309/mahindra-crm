@@ -1,0 +1,633 @@
+/* ==========================================================================
+   ANHET MAHINDRA CRM - PREMIUM VISUAL DESIGN OVERRIDES
+   ========================================================================== */
+
+/* 1. Global Custom Theme Variables & Tokens */
+:root {
+  /* Color Palette overrides */
+  --bs-primary: #e31837 !important;
+  --bs-primary-rgb: 227, 24, 55 !important;
+  --bs-primary-bg-subtle: rgba(227, 24, 55, 0.08) !important;
+  --bs-primary-border-subtle: rgba(227, 24, 55, 0.15) !important;
+  
+  --mahindra-red: #e31837;
+  --mahindra-red-hover: #b80d15;
+  --mahindra-red-glow: rgba(227, 24, 55, 0.35);
+  
+  /* WCAG AA Contrast compliant tones on dark/black backgrounds */
+  --mahindra-red-text: #ff4d6a; /* contrast 5.4:1 on #121214 */
+  --mahindra-error-red: #ff453a; /* contrast 5.2:1 on #121214 */
+  --mahindra-silver-muted: #a1a1a6; /* contrast 4.5:1 on #121214 */
+  --mahindra-silver-active: #e5e5e7; /* contrast 11.2:1 on #121214 */
+
+  /* Carbon Theme Neutrals (Light Theme bases) */
+  --carbon-bg: #f4f5f8;
+  --carbon-dark: #0f0f12;
+  --carbon-charcoal: #1c1c1f;
+  --carbon-border: rgba(28, 28, 31, 0.07);
+  --carbon-text-muted: #82828c;
+  
+  /* 3D Depth Shadows */
+  --shadow-3d: 0 10px 30px -10px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --shadow-3d-hover: 0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-neumorphic-kpi: 6px 6px 16px rgba(165, 175, 190, 0.25), -6px -6px 16px rgba(255, 255, 255, 0.85);
+  --shadow-inset-soft: inset 1px 1px 3px rgba(0, 0, 0, 0.04), inset -1px -1px 3px rgba(255, 255, 255, 0.7);
+
+  /* Glassmorphism Defaults */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.55);
+
+  /* Supporting color overrides */
+  --bs-success: #2e7d32 !important;
+  --bs-success-rgb: 46, 125, 50 !important;
+  --bs-info: #00838f !important;
+  --bs-info-rgb: 0, 131, 143 !important;
+  --bs-warning: #ef6c00 !important;
+  --bs-warning-rgb: 239, 108, 0 !important;
+  --bs-danger: #c62828 !important;
+  --bs-danger-rgb: 198, 40, 40 !important;
+  --bs-secondary: #455a64 !important;
+  --bs-secondary-rgb: 69, 90, 100 !important;
+}
+
+/* 2. Global Typography Reset */
+html, body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  background-color: var(--carbon-bg) !important;
+  color: #2c2c30 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .card-title, .app-brand-text {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--carbon-dark) !important;
+  letter-spacing: -0.015em;
+}
+
+/* 3. Global Card Restyling (Subtle 3D Depth) */
+.card {
+  border: 1px solid var(--carbon-border) !important;
+  border-radius: 12px !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  box-shadow: var(--shadow-3d) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  /* Only translate dashboard interactive cards, list cards are standard */
+  box-shadow: var(--shadow-3d-hover) !important;
+}
+
+/* 4. Native Input & Select2 Redesign (Safeguards Datepickers & Autofill) */
+.form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--carbon-dark);
+}
+
+.form-control, .form-select {
+  border: 1px solid rgba(28, 28, 31, 0.15) !important;
+  border-radius: 8px !important; /* Force 8px on all standard input fields */
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-inset-soft) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Explicit corner-rounding overrides for fields inside input groups */
+.input-group .form-control,
+.input-group .input-group-text {
+  border-radius: 0 !important;
+}
+
+.input-group > :first-child.form-control,
+.input-group > :first-child.input-group-text {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+
+.input-group > :last-child.form-control,
+.input-group > :last-child.input-group-text {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--mahindra-red) !important;
+  box-shadow: 0 0 0 3px var(--mahindra-red-glow) !important;
+}
+
+/* Unified styling for merged input groups (like password + eye toggler) */
+.input-group-merge {
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
+}
+
+.input-group-merge .form-control {
+  border-right: 0 !important;
+}
+
+.input-group-merge .input-group-text {
+  border-left: 0 !important;
+}
+
+.input-group-merge:focus-within {
+  box-shadow: 0 0 0 3px var(--mahindra-red-glow) !important;
+}
+
+.input-group-merge:focus-within .form-control,
+.input-group-merge:focus-within .input-group-text {
+  border-color: var(--mahindra-red) !important;
+}
+
+/* Prevent double shadows and restore border separation rules on focus */
+.input-group-merge .form-control:focus {
+  box-shadow: none !important;
+  border-right: 0 !important;
+}
+
+/* Chrome/Safari Autofill safety override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--carbon-dark) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Exclude Select2 selection arrows from inset clip paths */
+.select2-container--bootstrap-5 .select2-selection {
+  border-radius: 8px !important;
+  border: 1px solid rgba(28, 28, 31, 0.15) !important;
+  box-shadow: none !important;
+}
+
+/* Ensure native datepickers don't warp their dropdown clickables */
+input[type="date"], input[type="datetime-local"] {
+  min-height: calc(1.5em + 1.2rem + 2px);
+}
+
+/* 5. Buttons & Global Styling Overrides */
+.btn-primary {
+  background: linear-gradient(135deg, var(--mahindra-red) 0%, var(--mahindra-red-hover) 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  padding: 0.6rem 1.25rem;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.25) !important;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #3a3a3c !important;
+  border-color: #3a3a3c !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(58, 58, 60, 0.25) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(1px) !important;
+}
+
+/* Outlines and other states */
+.btn-outline-primary {
+  border-color: var(--mahindra-red) !important;
+  color: var(--mahindra-red) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--mahindra-red) !important;
+  color: #ffffff !important;
+}
+
+/* 6. Authentication Pages Visual Redesign (Centered Light Layout) */
+.authentication-wrapper {
+  background-color: #f4f5f8 !important;
+}
+
+.text-charcoal {
+  color: #1c1c1f !important;
+}
+
+.shadow-3d-light {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(28, 28, 31, 0.08) !important;
+  border-radius: 12px !important;
+}
+
+.border-light-silver {
+  border-color: rgba(28, 28, 31, 0.06) !important;
+}
+
+/* Forgot Password links & layout overrides */
+.forgot-link {
+  color: var(--mahindra-red) !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: var(--mahindra-red-hover) !important;
+}
+
+/* Light theme Alert override for Login errors */
+.alert-danger-light {
+  background-color: #fef2f2 !important;
+  border: 1px solid #fee2e2 !important;
+  color: #991b1b !important; /* Compliant WCAG dark red text on light red alert box */
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   DASHBOARD WIDGETS & POLISHED TABLES OVERRIDES
+   ========================================================================== */
+
+/* Neumorphic / Soft 3D dashboard cards */
+.row.mb-6 .card, .row.mb-6 .card-body {
+  box-shadow: var(--shadow-neumorphic-kpi) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+.row.mb-6 .card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(165, 175, 190, 0.35) !important;
+  border-color: rgba(227, 24, 55, 0.15) !important;
+}
+
+/* Rounded glowing avatars */
+.avatar-initial {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), var(--shadow-inset-soft) !important;
+}
+
+/* Polished Datatables & Table listings */
+.table {
+  border-collapse: separate !important;
+  border-spacing: 0 4px !important;
+  margin-top: 0.5rem !important;
+}
+
+.table th {
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  color: var(--carbon-text-muted) !important;
+  border-bottom: 2px solid rgba(28, 28, 31, 0.08) !important;
+  padding: 1rem 1.25rem !important;
+}
+
+.table td {
+  padding: 1.1rem 1.25rem !important;
+  background-color: #ffffff;
+  border-top: 1px solid rgba(28, 28, 31, 0.05) !important;
+  border-bottom: 1px solid rgba(28, 28, 31, 0.05) !important;
+  font-size: 0.875rem;
+  color: var(--carbon-dark);
+  vertical-align: middle !important;
+}
+
+/* First/Last cell borders for rounded table rows */
+.table tbody tr td:first-child {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  border-left: 1px solid rgba(28, 28, 31, 0.05) !important;
+}
+
+.table tbody tr td:last-child {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  border-right: 1px solid rgba(28, 28, 31, 0.05) !important;
+}
+
+.table tbody tr {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+  transition: all 0.2s ease-in-out;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(227, 24, 55, 0.025) !important;
+}
+
+.table tbody tr:hover td {
+  background-color: rgba(227, 24, 55, 0.015) !important;
+  border-top-color: rgba(227, 24, 55, 0.1) !important;
+  border-bottom-color: rgba(227, 24, 55, 0.1) !important;
+}
+
+/* Sticky header implementation */
+.table-responsive {
+  border-radius: 8px !important;
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background: rgba(244, 245, 248, 0.95) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2;
+  box-shadow: inset 0 -1px 0 rgba(28, 28, 31, 0.1) !important;
+  border-top: none !important;
+}
+
+/* Status badging and color labels */
+.badge {
+  font-weight: 600 !important;
+  padding: 0.5em 0.85em !important;
+  border-radius: 6px !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.bg-label-success {
+  background-color: rgba(46, 125, 50, 0.1) !important;
+  color: #2e7d32 !important;
+}
+
+.bg-label-primary {
+  background-color: rgba(227, 24, 55, 0.08) !important;
+  color: var(--mahindra-red) !important;
+}
+
+.bg-label-warning {
+  background-color: rgba(239, 108, 0, 0.1) !important;
+  color: #ef6c00 !important;
+}
+
+.bg-label-danger {
+  background-color: rgba(198, 40, 40, 0.1) !important;
+  color: #c62828 !important;
+}
+
+.bg-label-info {
+  background-color: rgba(0, 131, 143, 0.1) !important;
+  color: #00838f !important;
+}
+
+.bg-label-secondary {
+  background-color: rgba(69, 90, 100, 0.1) !important;
+  color: #455a64 !important;
+}
+
+/* ==========================================================================
+   TABS & DETAIL WORKSPACE STYLING OVERRIDES
+   ========================================================================== */
+.nav-tabs {
+  border-bottom: 2px solid rgba(28, 28, 31, 0.08) !important;
+  gap: 0.35rem;
+}
+
+.nav-tabs .nav-item .nav-link {
+  border: none !important;
+  color: var(--carbon-text-muted) !important;
+  font-weight: 500;
+  padding: 0.85rem 1.35rem !important;
+  border-radius: 6px 6px 0 0 !important;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.nav-tabs .nav-item .nav-link:hover {
+  color: var(--mahindra-red) !important;
+  background-color: rgba(227, 24, 55, 0.03) !important;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  color: var(--mahindra-red) !important;
+  background-color: transparent !important;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-item .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--mahindra-red);
+  border-radius: 3px 3px 0 0;
+}
+
+.nav-tabs .nav-link i {
+  margin-right: 0.35rem;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+/* Notes list card overrides */
+.notes-list .card {
+  border: 1px solid rgba(28, 28, 31, 0.06) !important;
+  border-left: 4px solid rgba(28, 28, 31, 0.15) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.notes-list .card:hover {
+  transform: translateX(3px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.notes-list .card.border-warning {
+  border-left-color: #ef6c00 !important;
+}
+
+/* Tasks list priority color row borders */
+.task-priority-high td:first-child {
+  border-left: 4px solid var(--bs-danger) !important;
+}
+
+.task-priority-medium td:first-child {
+  border-left: 4px solid var(--bs-warning) !important;
+}
+
+.task-priority-low td:first-child {
+  border-left: 4px solid var(--bs-info) !important;
+}
+
+/* Extra card & grid borders for lists layout */
+.card-header .btn-outline-primary, 
+.card-header .btn-outline-secondary, 
+.card-header .btn-outline-success, 
+.card-header .btn-outline-warning, 
+.card-header .btn-outline-info {
+  border-width: 1px !important;
+  font-weight: 500;
+  border-radius: 6px !important;
+}
+
+/* ==========================================================================
+   EXCHANGE & TRADE-IN PANEL STYLING OVERRIDES
+   ========================================================================== */
+#exchange_fields .card {
+  background: linear-gradient(135deg, #f4f5f8 0%, #e3e6ed 100%) !important;
+  border: 1px solid rgba(28, 28, 31, 0.08) !important;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 6px 20px -5px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#exchange_fields .card:hover {
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 10px 25px -5px rgba(227, 24, 55, 0.08) !important;
+  border-color: rgba(227, 24, 55, 0.18) !important;
+}
+
+#exchange_fields h6 {
+  color: var(--mahindra-red) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   SETTINGS & PERMISSIONS GRIDS STYLING OVERRIDES
+   ========================================================================== */
+/* Premium Checkboxes & Switches */
+.form-check-input {
+  border: 1.5px solid rgba(28, 28, 31, 0.25) !important;
+  border-radius: 4px !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  box-shadow: none !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--mahindra-red) !important;
+  border-color: var(--mahindra-red) !important;
+  box-shadow: 0 3px 8px rgba(227, 24, 55, 0.3) !important;
+}
+
+.form-check-input:focus {
+  border-color: var(--mahindra-red) !important;
+  box-shadow: 0 0 0 3px var(--mahindra-red-glow) !important;
+}
+
+/* Custom form-switch styling for premium look */
+.form-switch .form-check-input {
+  border-radius: 2rem !important;
+  width: 2.2rem !important;
+  height: 1.2rem !important;
+}
+
+.form-switch .form-check-input:checked {
+  background-color: var(--mahindra-red) !important;
+  border-color: var(--mahindra-red) !important;
+}
+
+/* Permissions Group Containers */
+.border.rounded-3 {
+  border: 1px solid rgba(28, 28, 31, 0.08) !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(28, 28, 31, 0.02) !important;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+}
+
+.border.rounded-3:hover {
+  border-color: rgba(28, 28, 31, 0.15) !important;
+  box-shadow: 0 6px 18px rgba(28, 28, 31, 0.04) !important;
+}
+
+.border.rounded-3 .bg-light {
+  background-color: #f4f5f8 !important;
+  border-bottom: 1px solid rgba(28, 28, 31, 0.08) !important;
+  padding: 1rem 1.25rem !important;
+}
+
+.border.rounded-3 .row {
+  padding: 1.25rem 1.25rem !important;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 1.75rem !important;
+}
+
+.form-check .form-check-input {
+  margin-left: -1.75rem !important;
+}
+
+.form-check-label {
+  color: var(--carbon-dark) !important;
+  font-weight: 500;
+  font-size: 0.9rem !important;
+  user-select: none;
+}
+
+/* ==========================================================================
+   SHARED ELEMENTS, SIDEBAR TRANSITIONS & GLASS NAVBAR
+   ========================================================================== */
+
+/* Smooth hardware-accelerated sidebar collapse/expand transitions */
+.layout-menu, 
+.layout-wrapper:not(.layout-no-menu) .layout-menu {
+  transition: width 0.22s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.layout-menu .menu-inner .menu-item .menu-link {
+  transition: background-color 0.15s ease, padding-left 0.15s ease !important;
+}
+
+/* Glassmorphic Translucent Top Navbar */
+.layout-navbar {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  box-shadow: 0 8px 32px -10px rgba(0, 0, 0, 0.05), var(--shadow-3d) !important;
+  border-radius: 8px !important;
+}
+
+/* Standardized Modal elevation and borders */
+.modal-content {
+  border: 1px solid rgba(28, 28, 31, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.16) !important;
+  background-color: #ffffff !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(28, 28, 31, 0.06) !important;
+  padding: 1.25rem 1.5rem !important;
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(28, 28, 31, 0.06) !important;
+  padding: 1.25rem 1.5rem !important;
+}
+
+/* 7. Print isolation rules (Point 4) */
+@media print {
+  body, .content-wrapper, .card, .table, td, th {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .layout-menu, .layout-navbar, .btn, .dropdown, #exportBtn, button, .dropdown-toggle {
+    display: none !important;
+  }
+}
